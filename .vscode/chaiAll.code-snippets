@@ -6,20 +6,20 @@
       "describe('${1:functionName <str>}', function() {",
       "  it('${2:should... <str>}', function() {",
       "    ${3://execution};",
-      "    expect($4).to.equal($5);",
-      "  });$0",
+      "    expect($4).to.equal($5);$0",
+      "  });",
       "});",
 	 	],
 	 	"description": "chai test 'describe block' snippet"
   },
-  
+
   "it('should describe chai test', function() {...})": {
     "scope": "javascript,typescript",
     "prefix": "itChai",
     "body": [
-      "it('$1', function() {",
-      "  $2",
-      "  expect($4).to.equal($5);",
+      "it('${1:should... <str>}', function() {",
+      "  ${2://execution};",
+      "  expect($3).to.equal($4);$0",
       "});",
     ],
     "description": "chai test 'it block' snippet"
