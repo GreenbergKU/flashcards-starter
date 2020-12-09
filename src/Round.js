@@ -1,5 +1,4 @@
 const Turn = require('./Turn');
-const Deck = require('./Deck');
 
 class Round {
   constructor(deck){
@@ -11,7 +10,6 @@ class Round {
   };
 
   returnCurrentCard() {
-    //console.log("this.currentCard: ", this.deck.deckCards[this.turnsCount]);
     return this.currentCard = this.deck.deckCards[this.turnsCount];
   };
 

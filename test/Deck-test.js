@@ -9,7 +9,7 @@ const prototypeQuestions = data.prototypeData;
 
 describe('Deck', function() {
   const deck = new Deck(prototypeQuestions);
-  
+
   it('should be a function', function() {
     expect(Deck).to.be.a('function');
   });
@@ -18,21 +18,7 @@ describe('Deck', function() {
     expect(deck).to.be.an.instanceof(Deck);
   });
 
-  describe('makeDeck', function() {
-    it('should be a function', function() {
-      expect(deck.makeDeck).to.be.a('function');
-    });
-
-    it('should create an array of card objects', function() {
-      expect(deck.deckCards).to.be.a('array');
-      expect(deck.deckCards[0]).to.be.a('object');
-      expect(deck.deckCards[0]).to.be.an.instanceof(Card);
-      expect(deck.deckCards.length).to.equal(prototypeQuestions.length);
-    });
-  });
-
   describe('countCards', function() {
-
     it('should be a function', function() {
       expect(deck.countCards).to.be.a('function');
     });
