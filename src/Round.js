@@ -27,7 +27,7 @@ class Round {
 
   endRound() {
     let endMessage = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
-    return this.turnsCount > 0 ? endMessage : endMessage.replace('NaN', '0');
+    return this.turnsCount > 0 ? console.log(endMessage) : console.log(endMessage.replace('NaN', '0'));
   };
 
 };

@@ -13,7 +13,8 @@ class Game {
   };
 
   printMessage(deck, round) {
-    return this.welcomeMessage = `This is round #${round.turnsCount} of FlashCards! You are playing with ${deck.countCards()} cards.-----------------------------------------------------------------------`;
+    console.log(this.welcomeMessage = `This is round #${round.turnsCount} of FlashCards! You are playing with ${deck.countCards()} cards.-----------------------------------------------------------------------`);
+    return this.welcomeMessage;
   };
 
   printQuestion(round) {
@@ -23,7 +24,8 @@ class Game {
   start() {
     this.deck = new Deck(this.makeDeck());
     this.currentRound = new Round(this.deck);
-    this.welcomeMessage = this.printMessage(this.deck, this.currentRound);
+    this.printMessage(this.deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   };
 
   makeDeck() {
