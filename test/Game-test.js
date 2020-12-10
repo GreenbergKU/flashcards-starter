@@ -34,7 +34,7 @@ describe('Game', function() {
     });
 
     it('should return a list of Card objects', function() {
-      expect(game.makeDeck().length).to.equal(30);
+      expect(game.makeDeck().length).to.equal(game.allCardsData.length);
     });
   });
 
@@ -62,13 +62,48 @@ describe('Game', function() {
 
   describe('printMessage', function() {
     it('should be a function', function() {
+      let game = new Game(prototypeQuestions);
+      game.start();
+
+      let message = `This is round #${game.currentRound.roundsNumber} of FlashCards! You are playing with ${game.deck.countCards()} cards.-----------------------------------------------------------------------`;
 
       expect(game.printMessage).to.be.a('function');
-      expect(game.printMessage(game.deck, game.currentRound)).to.equal(game.welcomeMessage);
-      expect(game.welcomeMessage).to.equal(`This is round #${game.currentRound.turnsCount} of FlashCards! You are playing with ${game.deck.countCards()} cards.-----------------------------------------------------------------------`);    
+      expect(game.printMessage(game.deck, game.currentRound)).to.equal(game.startMessage);
+      expect(game.startMessage).to.equal(message);    
     });
   });
 
+  /*
+  describe('newRound', function() {
+
+    let game = new Game(prototypeQuestions);
+    game.start();
+
+    game.currentRound.takeTurn('array'); // incorrect
+    game.currentRound.takeTurn('object'); // incorrect
+    game.currentRound.takeTurn('mutator method'); // correct
+    game.currentRound.takeTurn('accessor method'); // correct
+
+    let wrongAnswers = game.currentRound.incorrectGuesses;
+    game.newRound();
+
+    it('should be a function', function() {
+      expect(game.newRound).to.be.a('function');
+    });
+
+    it('should create a new Deck instance', function() {
+      expect(game.deck).to.be.an.instanceof(Deck);
+    });
+
+    it('should create a deck with incorrect guesses, id from wrongGuesses should match card id in new deck',  function() {
+ 
+      expect(game.deck.deckCards[0].id).to.equal(wrongAnswers[0]-1);
+    });
+    
+    expect(game.deck.deckCards.length).to.equal(wrongAnswers.length);
+  });
+  */
+  
 });
 
 

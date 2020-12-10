@@ -2,20 +2,23 @@ const util = require('./util');
 
 const Card = require('./Card');
 const Deck = require('./Deck');
-const Round = require('./Round'); 
+const Round = require('./Round');
 
 class Game {
   constructor(allCardsData) {
     this.allCardsData = allCardsData;
     this.deck;
     this.currentRound;
-    this.welcomeMessage;
-  };
+    this.startMessage;
+    this.roundNum = 0;
+  }
 
   printMessage(deck, round) {
-    console.log(this.welcomeMessage = `This is round #${round.turnsCount} of FlashCards! You are playing with ${deck.countCards()} cards.-----------------------------------------------------------------------`);
-    return this.welcomeMessage;
-  };
+
+    this.startMessage = `This is round #${round.roundsNumber} of FlashCards! You are playing with ${deck.countCards()} cards.-----------------------------------------------------------------------`;
+    console.log(this.startMessage);
+    return this.startMessage;
+  }
 
   printQuestion(round) {
       util.main(round);
@@ -24,6 +27,7 @@ class Game {
   start() {
     this.deck = new Deck(this.makeDeck());
     this.currentRound = new Round(this.deck);
+    this.currentRound.addRound(this.roundNum);
     this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.currentRound);
   };
@@ -33,6 +37,20 @@ class Game {
     this.allCardsData.forEach(card => deck.push(new Card(card.id, card.question, card.answers, card.correctAnswer)));
     return deck;
   };
+
+  /*
+  newRound() {
+    let wrongAnswers = this.currentRound.incorrectGuesses;
+    let deckData = [];
+    wrongAnswers.forEach(num => deckData.push(this.deck.deckCards.slice((num - 1), 1)));
+    this.allCardsData = deckData;
+    this.deck = new Deck(this.makeDeck());
+    this.currentRound = new Round(this.deck);
+    
+    console.log('this.deck: ', this.deck);
+  }
+  */
+
 }
 
 module.exports = Game;

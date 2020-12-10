@@ -64,7 +64,7 @@ describe('Round', function() {
   });
   
   describe('calculatePercentCorrect', function() {
-    game = new Game(prototypeQuestions);
+    let game = new Game(prototypeQuestions);
     game.start();
 
     it('should be a function', function() {
@@ -76,15 +76,14 @@ describe('Round', function() {
       game.currentRound.takeTurn('array');
       game.currentRound.takeTurn('mutator method');
       game.currentRound.takeTurn('accessor method');
-      game.currentRound.takeTurn('map()');
       
       expect(game.currentRound.calculatePercentCorrect()).to.be.a('number');
-      expect(game.currentRound.calculatePercentCorrect()).to.equal((game.currentRound.turnsCount - game.currentRound.incorrectGuesses.length) / game.currentRound.turnsCount) * 100;
+      expect(game.currentRound.calculatePercentCorrect()).to.equal((game.currentRound.turnsCount - game.currentRound.incorrectGuesses.length) / game.currentRound.turnsCount * 100);
     });
   });
 
   describe('endRound', function() {
-    game = new Game(prototypeQuestions);
+    let game = new Game(prototypeQuestions);
     game.start();
 
     it('should be a function', function() {
@@ -92,18 +91,21 @@ describe('Round', function() {
     });
 
     it('should replace "NaN" with "0" when no turns have been taken', function() {      
-      expect(game.currentRound.endRound()).to.equal(`** Round over! ** You answered 0% of the questions correctly!`);
+      let message = `** Round #${game.currentRound.roundsNumber} over! ** You answered ${game.currentRound.calculatePercentCorrect()}% of the questions correctly!`;
+
+      expect(game.currentRound.endRound()).to.equal(message);
     });
 
-    it("should log `** Round over! ** You answered ${<percent>}% of the questions correctly!` with the correct percentage of correct answers", function() {
+    it("should log 'endMessage' with the correct percentage of correct answers", function() {
 
-      game.currentRound.takeTurn('object');
-      game.currentRound.takeTurn('array');
-      game.currentRound.takeTurn('mutator method');
-      game.currentRound.takeTurn('accessor method');
-      game.currentRound.takeTurn('map()');
+      game.currentRound.takeTurn('object'); //correct
+      game.currentRound.takeTurn('array'); //correct
+      game.currentRound.takeTurn('mutator method'); //correct
+      game.currentRound.takeTurn('accessor method'); //correct
 
-      expect(game.currentRound.endRound()).to.equal(`** Round over! ** You answered ${game.currentRound.calculatePercentCorrect()}% of the questions correctly!`);
+      let message = `** Round #${game.currentRound.roundsNumber} over! ** You answered ${game.currentRound.calculatePercentCorrect()}% of the questions correctly!`;
+
+      expect(game.currentRound.endRound()).to.equal(message);
     });
   });
 
