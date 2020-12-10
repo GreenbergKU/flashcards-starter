@@ -76,4 +76,56 @@ Run the command in your terminal `npm run lint` to run the linter on your JavaSc
 
 Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
 
+
+---
+
+<br>
+
+## ITERATION 4 (options/choices):
+<br>
+
+**Choose one or more of these extensions for this iteration.**
+
+  - *Note: Solving some of these problems may require modifying pre-existing code that was given to you*
+
+---
+
+#### PROJECT BOARD:
+Use a project board to guide your workflow Use a tool like GitHub pages or Trello to split up iteration items into small tasks.
+
+---
+
+#### ANOTHER DECK & ROUND:
+Build out another study/flashcards dataset Create a new dataset that is structured similarily to our prototypes dataset. This dataset should be reviewing another fundamental topic and should live in the same data.js file.. Update your application so that once the first Round is over (and thus, the Game is over), a new Round starts with the new dataset that you’ve created.
+
+---
+
+#### MORE PRACTICE... 
+Add functionality so that a score of less than 90% will require the user to go through the entire dataset again.
+
+---
+
+#### REVIEW INCORRECT ANSWERS:
+Add functionality so that the Round (and thus, the Game) does not end after you’ve gone through all of the cards. The player should then be prompted to try to guess again, reviewing only those cards that are stored as incorrect.
+
+---
+
+#### TIMER:
+At the end of the game, report how much time it took to complete the game (in minutes and seconds).
+
+---
+
+#### REPORT CARD:
+At the end of the game, create a report card that would detail any answers that the user got wrong as well as how many tries each question took.
+
+---
+
+#### OPTIONS FOR MIXED DATATYPES:
+At the beginning of the game, give options for choosing to study different subjects (have a dataset for one subject and another subject), as well as the option for mixing all of the subjects together.
+
+---
+
+#### CYOE (Choose Your Own Extension):
+Collaborate with instructors to personalize an extension for this project.
+
 ---

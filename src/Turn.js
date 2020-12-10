@@ -18,7 +18,9 @@ class Turn {
   };
 
   giveFeedback() {
-    return this.correct ? "correct!" : "incorrect!";
+    if (this.currCard.id === "cont") {
+      return this.correct ? "Go Back Through The Questions You Answered Incorrectly!" : "FLASHCARD SESSION HAS ENDED!"
+    } else return this.correct ? "correct!" : "incorrect!";
   };
 }
 
