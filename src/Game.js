@@ -37,6 +37,19 @@ class Game {
     this.allCardsData.forEach(card => deck.push(new Card(card.id, card.question, card.answers, card.correctAnswer)));
     return deck;
   };
+  
+  getNextRoundStatus() {
+    this.allCardsData = this.currentRound.onlyIncorrects ? this.allCardsData.removeCorrect() : this.allCardsData;
+    this.currentRound.playAgain ? this.start() : console.log("PROGRAM DONE... THE END!");
+        //this.currentRound.redo
+    
+  };
+    
+  removeCorrect() {
+    // this.allCardsData.filter(...remove each correctly answered question);
+    // MUST RETURN updated data for new Deck in new Round
+  }
+  
 
   /*
   newRound() {
