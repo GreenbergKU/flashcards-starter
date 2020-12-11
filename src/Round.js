@@ -13,6 +13,7 @@ class Round {
     this.roundsNumber = 0;
     this.incorrectGuesses = [];
     this.turn;
+    this.redo = false;
 
     this.playAgain;
   };
@@ -36,7 +37,9 @@ class Round {
   endRound() {
     let endMessage = `** Round #${this.roundsNumber} over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
     this.turnsCount > 0 ? console.log(endMessage) : console.log(endMessage.replace('NaN', '0'));
-    this.playAgain = true;
+    this.redo = this.calculatePercentCorrect() < 90 ? true : false;
+    
+    //this.playAgain = true;
     return endMessage
   };
 
@@ -45,8 +48,8 @@ class Round {
     console.log("num", num);
     console.log('this.roundNumber: ', this.roundNumber);
     
-    num += 1;
-    this.roundNumber = num;
+    //num += 1;
+    this.roundNumber = num + 1;
     
     console.log('AFTER: ');
     console.log("num", num);
