@@ -38,6 +38,7 @@ async function main(round) {
  
     if(!round.returnCurrentCard()) {
       round.endRound();
+      // game.checkRedo() ( game.getNextRoundStatus() )
     } else {
       main(round);
     }
